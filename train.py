@@ -19,21 +19,21 @@ from unet import UNet
 from utils.data_loading import BasicDataset, CarvanaDataset
 from utils.dice_score import dice_loss
 
-dir_img = Path('./data/imgs/')
-dir_mask = Path('./data/masks/')
-dir_checkpoint = Path('./checkpoints/')
+dir_img = Path('/content/drive/MyDrive/KnittingGirls/Pytorch-UNet/data/imgs/')
+dir_mask = Path('/content/drive/MyDrive/KnittingGirls/Pytorch-UNet/data/masks/')
+dir_checkpoint = Path('/content/drive/MyDrive/KnittingGirls/Pytorch-UNet/checkpoints/')
 
 
 def train_model(
         model,
         device,
-        epochs: int = 5,
-        batch_size: int = 1,
-        learning_rate: float = 1e-5,
+        epochs: int = 20,
+        batch_size: int = 16,
+        learning_rate: float = 1e-4,
         val_percent: float = 0.1,
         save_checkpoint: bool = True,
         img_scale: float = 0.5,
-        amp: bool = False,
+        amp: bool = True,
         weight_decay: float = 1e-8,
         momentum: float = 0.999,
         gradient_clipping: float = 1.0,
